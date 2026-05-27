@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rain Optional</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Modern Google Font Stack -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        /* Modernized Fluent Light Theme Variables */
+        :root {
+            --bg-global: #ffffff;
+            --text-main: #0f172a;
+            --text-secondary: #475569;
+            --sky-blue: #00A8E8;
+            --sky-blue-hover: #0086ba;
+            --section-accent-bg: #f8fafc;
+            --card-surface: #ffffff;
+            --navbar-surface: rgba(255, 255, 255, 0.85);
+            --card-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.04);
+            --border-element: #e2e8f0;
+            --transition-dynamic: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Premium Midnight Dark Theme Variables */
+        body.dark-mode {
+            --bg-global: #0b0f19;
+            --text-main: #f8fafc;
+            --text-secondary: #94a3b8;
+            --section-accent-bg: #111827;
+            --card-surface: #141b2d;
+            --navbar-surface: rgba(11, 15, 25, 0.85);
+            --card-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+            --border-element: #1e293b;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-global);
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* ─── CRITICAL DARK MODE TEXT COLOR FIXES ─── */
+        body.dark-mode .text-dark,
+        body.dark-mode .text-black,
+        body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4 {
+            color: var(--text-main) !important;
+        }
+        body.dark-mode .text-muted,
+        body.dark-mode .text-secondary {
+            color: var(--text-secondary) !important;
+        }
+        body.dark-mode .bg-light {
+            background-color: var(--section-accent-bg) !important;
+        }
+
+        /* ─── MODERN NAVBAR WITH GLASSMORPHISM ─── */
+        .navbar {
+            background-color: var(--navbar-surface);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-element);
+            padding: 18px 0;
+            transition: var(--transition-dynamic);
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.3rem;
+            letter-spacing: -0.5px;
+        }
+        .navbar-brand span {
+            color: var(--sky-blue);
+        }
+        .nav-link {
+            color: var(--text-main) !important;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin: 0 8px;
+            transition: var(--transition-dynamic);
+            opacity: 0.8;
+        }
+        .nav-link:hover {
+            color: var(--sky-blue) !important;
+            opacity: 1;
+        }
+
+        .btn-theme-toggle {
+            background: var(--section-accent-bg);
+            border: 1px solid var(--border-element);
+            color: var(--text-main);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition-dynamic);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-theme-toggle:hover {
+            border-color: var(--sky-blue);
+            color: var(--sky-blue);
+            transform: scale(1.05);
+        }
+
+        /* ─── HERO & MINIMALIST SEARCHBAR ─── */
+        .hero-section {
+            padding: clamp(80px, 10vw, 140px) 0 80px;
+            background: radial-gradient(circle at 90% 10%, rgba(0, 168, 232, 0.06) 0%, transparent 50%);
+        }
+        .brand-title {
+            font-size: clamp(2.5rem, 6vw, 4.25rem);
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+        .brand-title span {
+            color: var(--sky-blue);
+        }
+        .punchline {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: var(--text-secondary);
+            font-weight: 500;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Clean Unified Search Bar */
+        .search-wrapper {
+            max-width: 680px;
+            margin: 40px auto 0;
+            padding: 0 15px;
+        }
+        .search-container {
+            background: var(--card-surface);
+            padding: 8px 10px 8px 24px;
+            border-radius: 100px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-element);
+            transition: var(--transition-dynamic);
+            display: flex;
+            align-items: center;
+        }
+        .search-container:focus-within {
+            border-color: var(--sky-blue);
+            box-shadow: 0 0 0 4px rgba(0, 168, 232, 0.15);
+            transform: translateY(-2px);
+        }
+        .search-input {
+            border: none;
+            outline: none;
+            font-size: 16px; /* Prevents iOS auto-zoom structural shifting */
+            width: 100%;
+            background: transparent;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+        .search-input::placeholder {
+            color: var(--text-secondary);
+            opacity: 0.6;
+        }
+        .btn-search {
+            background-color: var(--sky-blue);
+            color: white;
+            border: none;
+            border-radius: 100px;
+            padding: 12px 32px;
+            font-weight: 600;
+            transition: var(--transition-dynamic);
+            white-space: nowrap;
+        }
+        .btn-search:hover {
+            background-color: var(--sky-blue-hover);
+        }
+
+        /* ─── MODERN BORDER-GLOW CARDS ─── */
+        .services-section {
+            padding: clamp(60px, 8vw, 100px) 0;
+        }
+        .section-title {
+            font-weight: 800;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            letter-spacing: -1px;
+        }
+        .section-title span {
+            color: var(--sky-blue);
+        }
+
+        .feature-card {
+            background: var(--card-surface);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-element);
+            transition: var(--transition-dynamic);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 168, 232, 0.3);
+            box-shadow: 0 30px 60px -15px rgba(0, 168, 232, 0.08);
+        }
+        .icon-box {
+            width: 56px;
+            height: 56px;
+            background-color: rgba(0, 168, 232, 0.08);
+            color: var(--sky-blue);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 28px;
+        }
+
+        /* ─── BUTTONS & INTERACTIVE ELEMENTS ─── */
+        .btn-sky {
+            background-color: var(--sky-blue);
+            color: white;
+            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: var(--transition-dynamic);
+            display: inline-block;
+            border: none;
+        }
+        .btn-sky:hover {
+            background-color: var(--sky-blue-hover);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 168, 232, 0.3);
+        }
+        .btn-outline-sky {
+            background-color: transparent;
+            color: var(--sky-blue);
+            border: 2px solid var(--sky-blue);
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: var(--transition-dynamic);
+            display: inline-block;
+        }
+        .btn-outline-sky:hover {
+            background-color: var(--sky-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .contact-box {
+            background-color: var(--card-surface);
+            border: 1px solid var(--border-element);
+            border-radius: 24px;
+            max-width: 600px;
+            margin: 30px auto 0;
+            box-shadow: var(--card-shadow);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background-color: #060911;
+            color: #64748b;
+            padding: 50px 0;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-element);
+        }
+
+        /* Mobile specific fixes */
+        @media (max-width: 576px) {
+            .search-container {
+                padding: 6px 6px 6px 16px;
+                border-radius: 16px;
+            }
+            .btn-search {
+                width: 100%;
+                border-radius: 10px;
+                margin-top: 8px;
+            }
+            .search-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-input {
+                padding: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Navigation Menu -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-dark" href="#home">Rain Opt<span>.</span></a>
+            <div class="d-flex align-items-center order-lg-last ms-3">
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle structural theme">
+                    <i id="theme-icon" class="bi bi-moon-fill"></i>
+                </button>
+                <button class="navbar-toggler border-0 ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="bi bi-list fs-2 text-dark"></i>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#search-zone">Rain Search</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">What We Do</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ourprojects.html">Our Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="support.html">Support Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Hero Section & Integrated Pure Searchbar Element -->
+    <header id="home" class="hero-section text-center">
+        <div class="container">
+            <h1 class="brand-title mb-3 text-dark">Rain Optional<span>.</span></h1>
+            <p class="punchline mb-5 text-secondary">"We do things that no one does."</p>
+            
+            <!-- Functional Search Hub Area -->
+            <div id="search-zone" class="search-wrapper">
+                <div class="small fw-bold text-secondary text-uppercase tracking-wider mb-3">
+                    <i class="bi bi-shield-lock-fill text-info me-1"></i> Tracker-Free Search
+                </div>
+                
+                <form action="https://rainsearch.gt.tc/" method="GET" target="_blank">
+                    <div class="search-container">
+                        <i class="bi bi-search text-secondary fs-5 me-2 d-none d-sm-block"></i>
+                        <input type="text" name="search" class="search-input" placeholder="Search securely with Rain Search..." required autocomplete="off">
+                        <button type="submit" class="btn-search">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. Dynamic Service Grid System -->
+    <section id="projects" class="services-section text-center">
+        <div class="container">
+            <h2 class="section-title mb-5 text-dark">What We <span>Do</span></h2>
+            
+            <div class="row g-4 justify-content-center mb-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="icon-box">
+                            <i class="bi bi-translate"></i>
+                        </div>
+                        <h4 class="fw-bold h5 mb-3 text-dark">Open-Access Translation</h4>
+                        <p class="text-secondary small mb-0">Localizing heavy academic, historical, and scientific assets like Newton's Principia into localized languages (Bengali).</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="icon-box">
+                            <i class="bi bi-code-square"></i>
+                        </div>
+                        <h4 class="fw-bold h5 mb-3 text-dark">Privacy Softwares</h4>
+                        <p class="text-secondary small mb-0">Developing tracking-free alternative web tools like Rain Search that prioritize user anonymity and parse results cleanly.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="icon-box">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h4 class="fw-bold h5 mb-3 text-dark">Localization Collective</h4>
+                        <p class="text-secondary small mb-0">Based in Bangladesh, working collaboratively to clear borders and empower technical ecosystems globally.</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="ourprojects.html" class="btn-outline-sky">Explore Project Repositories &rarr;</a>
+        </div>
+    </section>
+
+    <!-- 4. Support Section -->
+    <section id="support" class="services-section text-center bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-9">
+                    <div class="icon-box mx-auto mb-3" style="background: var(--bg-global);">
+                        <i class="bi bi-heart-fill text-danger"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3 text-dark">Support Our Mission</h3>
+                    <p class="text-secondary mx-auto mb-4">
+                        Whether you want to contribute your engineering/writing skills or drop micro-donations to keep our independent server infrastructures alive, your help makes an impact.
+                    </p>
+                    <a href="support.html" class="btn-sky">Go to Support Hub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Contact Section -->
+    <section id="contact" class="services-section text-center">
+        <div class="container">
+            <h3 class="fw-bold mb-2 text-dark">Connect With Us</h3>
+            <p class="text-secondary mb-4">Have localization requests or open-source proposals?</p>
+            
+            <div class="card p-4 border-0 contact-box text-center">
+                <p class="mb-2 fw-semibold text-secondary"><i class="bi bi-envelope-at me-2 text-primary"></i>Official Communication Channel:</p>
+                <a href="mailto:rainoptional@protonmail.com" class="fs-5 fw-bold text-decoration-none text-dark d-block mb-2">rainoptional@protonmail.com</a>
+                <span class="badge bg-secondary mx-auto px-3 py-2 mt-1" style="width: max-content;">Operating from Bangladesh</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Footer Layout -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="row align-items-center g-3">
+                <div class="col-md-4 text-md-start">
+                    <span class="fw-bold text-white fs-5">Rain Opt.</span>
+                </div>
+                <div class="col-md-4 text-center">
+                    <p class="mb-0 text-secondary">&copy; 2026 Rain Opt. All rights reserved.</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <small class="text-secondary d-block">Built proudly as an open-source initiative.</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Theme Control Logic -->
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.replace('bi-moon-fill', 'bi-sun-fill');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            let theme = 'light';
+
+            if (document.body.classList.contains('dark-mode')) {
+                theme = 'dark';
+                themeIcon.classList.replace('bi-moon-fill', 'bi-sun-fill');
+            } else {
+                themeIcon.classList.replace('bi-sun-fill', 'bi-moon-fill');
+            }
+            localStorage.setItem('theme', theme);
+        });
+    </script>
+</body>
+</html>
