@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Us - Rain Optional</title>
+      <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-white: #ffffff;
+            --text-dark: #121212;
+            --sky-blue: #00A8E8;
+            --light-blue-bg: #F4FAFC;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+        }
+
+        .navbar {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid #eee;
+        }
+        .navbar-brand, .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: var(--sky-blue) !important;
+        }
+
+        .header-title {
+            padding: 60px 0 30px;
+            background: linear-gradient(180deg, var(--bg-white) 0%, var(--light-blue-bg) 100%);
+        }
+
+        .support-card {
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 30px;
+            background-color: #fff;
+            height: 100%;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .support-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+        }
+
+        .accent-text {
+            color: var(--sky-blue);
+            font-weight: 700;
+        }
+
+        .amount-btn {
+            border: 2px solid #ddd;
+            background: transparent;
+            padding: 8px 16px;
+            margin: 5px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .amount-btn:hover, .amount-btn.active {
+            border-color: var(--sky-blue);
+            background-color: var(--light-blue-bg);
+            color: var(--sky-blue);
+        }
+
+        .btn-action {
+            background-color: var(--text-dark);
+            color: white;
+            font-weight: 600;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            margin-top: 15px;
+            transition: background-color 0.2s;
+        }
+        .btn-action:hover {
+            background-color: #222;
+            color: white;
+        }
+
+        .badge-method {
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background-color: #f0f0f0;
+            color: #333;
+            display: inline-block;
+            margin: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .badge-method.selected {
+            background-color: var(--sky-blue);
+            color: white;
+        }
+
+        footer {
+            background-color: var(--text-dark);
+            color: var(--bg-white);
+            padding: 30px 0;
+            font-size: 0.9rem;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Rain Opt.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#projects">Our Projects</a></li>
+                    <li class="nav-item"><a class="nav-link href="support.html"">Support Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header-title text-center">
+        <div class="container">
+            <h1 class="fw-bold mb-2">Support <span class="accent-text">Rain Optional</span></h1>
+            <p class="text-muted">We do things that no one does. Help us sustain and expand our open-source ecosystem.</p>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row g-4">
+            
+            <div class="col-md-6">
+                <div class="support-card d-flex flex-column justify-content-between">
+                    <div>
+                        <h3 class="fw-bold h4 mb-3">1. Contribute Your Talent</h3>
+                        <p class="text-muted">We operate on collective community effort. If you specialize or want to learn any of these fields, join our team:</p>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item bg-transparent px-0">📝 <strong>Writing:</strong> Creative storytelling, articles, and documentation.</li>
+                            <li class="list-group-item bg-transparent px-0">🌐 <strong>Translation:</strong> Regional and worldwide language localization.</li>
+                            <li class="list-group-item bg-transparent px-0">🎬 <strong>Animation:</strong> Producing motion graphics and visual explainers.</li>
+                            <li class="list-group-item bg-transparent px-0">🎙️ <strong>Recording:</strong> Voiceovers, audio cleanups, and podcast mixing.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a id="emailLink" href="mailto:rainopt@gmail.com?subject=Joining%20Rain%20Opt%20Collective&body=Hi%20Rain%20Opt%20Team,%0A%0AI%20would%20like%20to%20join%20and%20help%20with%20[writing/translation/animation/recording]." class="btn btn-action text-center d-block text-decoration-none">Apply via Email</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="support-card">
+                    <h3 class="fw-bold h4 mb-3">2. Micro-Donations</h3>
+                    <p class="text-muted mb-4">We are entirely non-commercial. Financial assistance directly updates server logs and funds tools.</p>
+                    
+                    <div class="mb-4">
+                        <label class="form-label fw-bold small text-uppercase text-muted">Select Your Region:</label>
+                        <div class="btn-group w-100" role="group">
+                            <input type="radio" class="btn-check" name="region" id="regInt" checked onclick="switchRegion('int')">
+                            <label class="btn btn-outline-dark font-weight-bold" for="regInt">🌍 International</label>
+                            
+                            <input type="radio" class="btn-check" name="region" id="regBd" onclick="switchRegion('bd')">
+                            <label class="btn btn-outline-dark font-weight-bold" for="regBd">🇧🇩 Bangladesh</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold small text-uppercase text-muted">Choose Amount:</label>
+                        <div id="amountContainer" class="d-flex flex-wrap justify-content-start">
+                            </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold small text-uppercase text-muted">Payment Method:</label>
+                        <div id="methodContainer">
+                            </div>
+                    </div>
+
+                    <button class="btn btn-action w-100" onclick="processDonation()">Proceed with Donation</button>
+                    <div id="donationStatus" class="mt-3 text-center small fw-bold" style="display:none;"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mt-5 pt-4">
+            <div class="col-12 text-center mb-4">
+                <h3 class="fw-bold">Other Ways to Expand Our Reach</h3>
+                <p class="text-muted">No money? No problem. Open-source ecosystems grow through basic network effects.</p>
+            </div>
+            
+            <div class="col-md-4 mb-3">
+                <div class="p-4 border rounded bg-light text-center h-100">
+                    <h4 class="h5 fw-bold mb-2">⭐ Star Repositories</h4>
+                    <p class="small text-muted mb-0">Follow our organizational mirrors online and star active projects to boost visibility globally.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-3">
+                <div class="p-4 border rounded bg-light text-center h-100">
+                    <h4 class="h5 fw-bold mb-2">📢 Share Our Work</h4>
+                    <p class="small text-muted mb-0">Tell friends, share localized reading logs, and cite our public assets in your blogs or projects.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="p-4 border rounded bg-light text-center h-100">
+                    <h4 class="h5 fw-bold mb-2">🐛 Report Audits</h4>
+                    <p class="small text-muted mb-0">Test open translation drafts, check editorial frameworks, and file structure issue logs.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Rain Opt. All rights reserved.</p>
+            <small class="text-muted">Built with pride as an open-source initiative.</small>
+        </div>
+    </footer>
+
+    <script>
+        const data = {
+            int: {
+                amounts: ["$1", "$5", "$10"],
+                methods: ["Bybit (Crypto / USDT)"]
+            },
+            bd: {
+                amounts: ["200 ৳", "500 ৳", "1000 ৳"],
+                methods: ["bKash", "Nagad", "Rocket", "Bank Transfer"]
+            }
+        };
+
+        let selectedAmount = "";
+        let selectedMethod = "";
+
+        function switchRegion(region) {
+            const container = document.getElementById('amountContainer');
+            const methodContainer = document.getElementById('methodContainer');
+            
+            container.innerHTML = "";
+            methodContainer.innerHTML = "";
+            document.getElementById('donationStatus').style.display = 'none';
+
+            // Populate Tier Amounts
+            data[region].amounts.forEach((amt, index) => {
+                let btn = document.createElement('button');
+                btn.className = "amount-btn";
+                btn.innerText = amt;
+                btn.onclick = function() {
+                    document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    selectedAmount = amt;
+                };
+                if(index === 0) { btn.classList.add('active'); selectedAmount = amt; }
+                container.appendChild(btn);
+            });
+
+            // Populate Gateway Gateways
+            data[region].methods.forEach((method, index) => {
+                let badge = document.createElement('span');
+                badge.className = "badge-method";
+                badge.innerText = method;
+                badge.onclick = function() {
+                    document.querySelectorAll('.badge-method').forEach(b => b.classList.remove('selected'));
+                    badge.classList.add('selected');
+                    selectedMethod = method;
+                };
+                if(index === 0) { badge.classList.add('selected'); selectedMethod = method; }
+                methodContainer.appendChild(badge);
+            });
+        }
+
+        function processDonation() {
+            const statusDiv = document.getElementById('donationStatus');
+            statusDiv.style.display = 'block';
+            statusDiv.className = "mt-3 text-center small fw-bold text-success";
+            statusDiv.innerHTML = `Redirecting order for ${selectedAmount} via ${selectedMethod}. (Sandbox Mode Active: Integration matching backend handles safely).`;
+        }
+
+        // Default initialization state
+        window.onload = function() {
+            switchRegion('int');
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
